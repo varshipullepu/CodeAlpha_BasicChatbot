@@ -1,6 +1,9 @@
 import nltk
 from nltk.chat.util import Chat, reflections
 
+# Download necessary NLTK data (in case it's not already downloaded)
+nltk.download('punkt')
+
 # Define the pairs of patterns and responses
 pairs = [
     [
@@ -9,14 +12,14 @@ pairs = [
     ],
     [
         r"hi|hey|hello",
-        ["Hello", "Hey there!",]
+        ["Hello!", "Hey there!",]
     ],
     [
-        r"what is your name?",
+        r"what is your name\??",
         ["I am a chatbot created by Varshitha.",]
     ],
     [
-        r"how are you?",
+        r"how are you\??",
         ["I'm doing good. How about you?",]
     ],
     [
@@ -28,12 +31,16 @@ pairs = [
         ["Goodbye! Take care.",]
     ],
     [
-        r"(.*) created you?",
+        r"(.*) created you\??",
         ["Varshitha created me using Python and NLTK.",]
     ],
     [
-        r"what can you do?",
+        r"what can you do\??",
         ["I can chat with you, respond to some questions, and more!",]
+    ],
+    [
+        r"(.*)",  # Catch-all pattern for anything else
+        ["I'm not sure how to respond to that. Can you ask something else?"]
     ]
 ]
 
